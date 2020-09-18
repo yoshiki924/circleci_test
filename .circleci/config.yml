@@ -5,10 +5,5 @@ jobs:
       - image: cimg/node:lts
     steps:
       - checkout
-      - run:
-          name: for debug
-          no_output_timeout: 10m
-          command: |
-            tail -f /dev/null
       - run: yarn install
       - run: yarn test
