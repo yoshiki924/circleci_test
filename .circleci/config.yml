@@ -1,8 +1,14 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
       - image: cimg/node:lts
     steps:
-      - run: echo "hello world!!!"
-      - run: touch test.txt
+      - checkout
+      - run:
+          name: for debug
+          no_output_timeout: 10m
+          command: |
+            tail -f /dev/null
+      - run: yarn install
+      - run: yarn test
